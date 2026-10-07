@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "أحمد محمد",
+    "email": "ahmed@example.com",
+    "appId": "hsa-notes",
+    "appName": "ملاحظات HSA",
+    "message": "التطبيق يتوقف عند إضافة صورة كبيرة في الملاحظات.",
+    "status": "review",
+    "date": "2026-09-20T10:30:00Z",
+    "reply": null
+  },
+  {
+    "id": 2,
+    "name": "Sara Ali",
+    "email": "sara@example.com",
+    "appId": "hsa-store",
+    "appName": "HSA Store",
+    "message": "The checkout page shows a blank screen on mobile Safari.",
+    "status": "replied",
+    "date": "2026-09-18T15:00:00Z",
+    "reply": "Thanks for the report! The fix will be included in version 3.0.2."
+  }
+]

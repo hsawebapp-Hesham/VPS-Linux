@@ -1,0 +1,228 @@
+/* ============================================================
+   HSA Come — التصميم المتجاوب (Responsive)
+   نقاط التوقف: 1024px / 768px / 480px + تقليل الحركة
+   (Breakpoints: 1024px / 768px / 480px + reduced motion)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   الشاشات المتوسطة — حتى 1024px (Medium screens — up to 1024px)
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  /* شبكة 4 أعمدة تصبح عمودين (Grid-4 becomes 2 columns) */
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* إحصائات البطل تلتف (Hero stats wrap) */
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+  }
+
+  /* التذييل يصبح عمودين (Footer becomes 2 columns) */
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ------------------------------------------------------------
+   الشاشات الصغيرة — حتى 768px (Small screens — up to 768px)
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  /* إظهار زر القائمة (Show hamburger) */
+  .hamburger {
+    display: flex;
+  }
+
+  /* روابط التنقل تصبح لوحة جانبية خارج الشاشة
+     (Nav links become an off-canvas panel) */
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    inset-inline-end: 0;
+    width: min(300px, 80vw);
+    height: calc(100vh - var(--header-height));
+    background: var(--bg-card);
+    box-shadow: var(--shadow-lg);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    /* مخفي عن الشاشة وعن قارئات الشاشة حتى يُفتح
+       (Hidden from display and assistive tech until opened) */
+    visibility: hidden;
+    /* ينزلق للخارج حسب اتجاه النص: يمين لـ LTR ويسار لـ RTL
+       (Slides out per text direction: right for LTR, left for RTL) */
+    transform: translateX(100%);
+    transition: transform var(--transition-normal);
+  }
+
+  [dir="rtl"] .nav-links {
+    transform: translateX(-100%);
+  }
+
+  .nav-links.open {
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  /* عنوان البطل يصبح أصغر (Hero title smaller) */
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* الشبكات تصبح عموداً واحداً (Grids become 1 column) */
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* شريط الفلترة يصبح عمودياً (Filter bar becomes column) */
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    min-width: 100%;
+  }
+
+  .filter-tabs {
+    justify-content: flex-start;
+  }
+
+  /* التذييل يصبح عموداً واحداً (Footer becomes 1 column) */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* أزرار تنقل العارض الضوئي تصبح أصغر (Lightbox nav buttons smaller) */
+  .lightbox-prev,
+  .lightbox-next {
+    width: 36px;
+    height: 36px;
+  }
+
+  .issue-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ------------------------------------------------------------
+   الشاشات الصغيرة جداً — حتى 480px (Extra small screens — up to 480px)
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  /* حشوة الحاوية تصغر (Container padding smaller) */
+  .container {
+    padding-inline: var(--spacing-sm);
+  }
+
+  /* أزرار البطل تصبح عمودية وممتدة (Hero CTA becomes column stretch) */
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-stats {
+    gap: var(--spacing-md);
+  }
+
+  .hero-stat-number {
+    font-size: 1.5rem;
+  }
+
+  /* بيانات بطاقة التطبيق تلتف (App card meta wraps) */
+  .app-card-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .app-card-actions {
+    flex-direction: column;
+  }
+
+  /* تقليل حشو الأقسام (Reduce section padding) */
+  .section {
+    padding-block: var(--spacing-xl);
+  }
+
+  .section-header {
+    margin-block-end: var(--spacing-xl);
+  }
+
+  /* زر العودة للأعلى يصبح أصغر (Back to top smaller) */
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: var(--spacing-sm);
+    inset-inline-end: var(--spacing-sm);
+  }
+
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .reactions {
+    flex-direction: column;
+  }
+
+  .toast {
+    min-width: 0;
+    width: calc(100% - var(--spacing-lg));
+  }
+}
+
+/* ------------------------------------------------------------
+   تقليل الحركة — احترام تفضيلات المستخدم
+   (Reduced motion — respect user preferences)
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+}

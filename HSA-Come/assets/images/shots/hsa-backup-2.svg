@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#EF4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="110" cy="90" r="90" fill="#FFFFFF" opacity="0.08"/>
+  <circle cx="1190" cy="640" r="110" fill="#FFFFFF" opacity="0.08"/>
+  <rect x="290" y="100" width="700" height="480" rx="12" fill="#FFFFFF"/>
+  <rect x="290" y="100" width="700" height="40" rx="12" fill="#E2E8F0"/>
+  <rect x="290" y="122" width="700" height="18" fill="#E2E8F0"/>
+  <rect x="310" y="112" width="200" height="16" rx="8" fill="#CBD5E1"/>
+  <circle cx="940" cy="120" r="7" fill="#EF4444"/>
+  <circle cx="962" cy="120" r="7" fill="#F59E0B"/>
+  <circle cx="984" cy="120" r="7" fill="#10B981"/>
+  <rect x="330" y="160" width="180" height="20" rx="10" fill="#F59E0B" opacity="0.65"/>
+  <rect x="700" y="156" width="250" height="28" rx="14" fill="#F1F5F9"/>
+  <rect x="330" y="206" width="620" height="72" rx="12" fill="#F8FAFC"/>
+  <rect x="350" y="222" width="52" height="40" rx="8" fill="#F59E0B" opacity="0.35"/>
+  <rect x="418" y="222" width="240" height="13" rx="6" fill="#F59E0B" opacity="0.6"/>
+  <rect x="418" y="244" width="180" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="830" y="226" width="90" height="28" rx="12" fill="#F59E0B" opacity="0.8"/>
+  <rect x="330" y="294" width="620" height="72" rx="12" fill="#F8FAFC"/>
+  <rect x="350" y="310" width="52" height="40" rx="8" fill="#EF4444" opacity="0.3"/>
+  <rect x="418" y="310" width="240" height="13" rx="6" fill="#F59E0B" opacity="0.6"/>
+  <rect x="418" y="332" width="180" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="830" y="314" width="90" height="28" rx="12" fill="#F59E0B" opacity="0.8"/>
+  <rect x="330" y="382" width="620" height="72" rx="12" fill="#F8FAFC"/>
+  <rect x="350" y="398" width="52" height="40" rx="8" fill="#06B6D4" opacity="0.3"/>
+  <rect x="418" y="398" width="240" height="13" rx="6" fill="#F59E0B" opacity="0.6"/>
+  <rect x="418" y="420" width="180" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="830" y="402" width="90" height="28" rx="12" fill="#F59E0B" opacity="0.8"/>
+  <rect x="330" y="470" width="620" height="72" rx="12" fill="#F8FAFC"/>
+  <rect x="350" y="486" width="52" height="40" rx="8" fill="#10B981" opacity="0.3"/>
+  <rect x="418" y="486" width="240" height="13" rx="6" fill="#F59E0B" opacity="0.6"/>
+  <rect x="418" y="508" width="180" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="830" y="490" width="90" height="28" rx="12" fill="#F59E0B" opacity="0.8"/>
+  <rect x="330" y="558" width="620" height="72" rx="12" fill="#F8FAFC"/>
+  <rect x="350" y="574" width="52" height="40" rx="8" fill="#8B5CF6" opacity="0.3"/>
+  <rect x="418" y="574" width="240" height="13" rx="6" fill="#F59E0B" opacity="0.6"/>
+  <rect x="418" y="596" width="180" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="830" y="578" width="90" height="28" rx="12" fill="#F59E0B" opacity="0.8"/>
+  <text x="640" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#FFFFFF">نسخ HSA — النسخ الاحتياطي</text>
+</svg>

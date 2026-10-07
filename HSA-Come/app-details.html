@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- صفحة تفاصيل التطبيق — HSA Come | App details page -->
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل التطبيق — HSA Come</title>
+  <meta name="description" content="تفاصيل التطبيق الكاملة، المميزات، لقطات الشاشة، وروابط التحميل من HSA Come.">
+  <meta name="keywords" content="HSA Come, تطبيقات, apps, ويب, أندرويد, كمبيوتر, web, android, desktop">
+  <meta name="author" content="Eng. Hesham Soliman Aid">
+  <meta name="theme-color" content="#F8FAFC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="تفاصيل التطبيق — HSA Come">
+  <meta property="og:description" content="تفاصيل التطبيق الكاملة، المميزات، لقطات الشاشة، وروابط التحميل من HSA Come.">
+  <meta property="og:image" content="assets/images/hero-illustration.svg">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    /* منع وميض السمة قبل أول رسم (zero theme flash) */
+    (function(){try{var t=localStorage.getItem('hsa-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+  </script>
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/translations.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/language.js" defer></script>
+  <script src="js/db.js" defer></script>
+  <script src="js/apps-fallback.js" defer></script>
+  <script src="js/apps-loader.js" defer></script>
+  <script src="js/reactions.js" defer></script>
+  <script src="js/report-form.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body data-page="details">
+
+    <!-- إشعار عند تعطيل JavaScript (shown only when JavaScript is disabled) -->
+    <noscript>
+      <style>.reveal{opacity:1 !important;transform:none !important}</style>
+      <div class="noscript-notice" role="alert"><strong>يتطلب هذا الموقع تفعيل JavaScript لعرض المحتوى وتبديل اللغة والوضع. | This site requires JavaScript to display its content and to switch language and theme.</strong></div>
+    </noscript>
+  <!-- رابط تخطي التنقل (Skip link) -->
+  <a href="#main-content" class="skip-link" data-i18n="skip.to.content"></a>
+
+  <!-- الترويسة (Header) -->
+  <header class="header" id="header">
+    <div class="container navbar-container">
+      <a href="index.html" class="nav-logo" aria-label="HSA Come">
+        <img src="assets/img/logo/logo.svg" alt="HSA Come" class="logo-img" width="40" height="40">
+        <span class="logo-text">HSA <span class="logo-accent">Come</span></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation" data-i18n-aria="nav.aria">
+        <a href="index.html" class="nav-link" data-i18n="nav.home"></a>
+        <a href="apps.html" class="nav-link" data-i18n="nav.apps"></a>
+        <a href="about.html" class="nav-link" data-i18n="nav.about"></a>
+        <a href="report-issue.html" class="nav-link" data-i18n="nav.report"></a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn lang-toggle" id="lang-toggle" type="button" data-i18n-aria="lang.toggle.aria" aria-label="تبديل اللغة">
+          <span class="lang-label">EN</span>
+        </button>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" data-i18n-aria="theme.toggle.aria" aria-label="تبديل الوضع الليلي/النهاري">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="icon-btn hamburger" id="hamburger" type="button" data-i18n-aria="menu.aria" aria-label="القائمة" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- المحتوى الرئيسي (Main content) -->
+  <main id="main-content" tabindex="-1">
+    <div class="container">
+      <!-- حالة التحميل (Loading state) -->
+      <div id="app-loading" class="text-center">
+        <div class="skeleton skeleton-card"></div>
+        <p class="muted" data-i18n="common.loading"></p>
+      </div>
+
+      <!-- حالة عدم العثور على التطبيق (Not found state) -->
+      <div id="app-notfound" class="card hidden">
+        <div class="card-body text-center">
+          <h1 class="card-title" data-i18n="details.notfound.title"></h1>
+          <p class="card-text" data-i18n="details.notfound.message"></p>
+          <a href="apps.html" class="btn btn-primary" data-i18n="details.back"></a>
+        </div>
+      </div>
+
+      <!-- تفاصيل التطبيق (App details — filled by AppDetailsPage.render) -->
+      <div id="app-details" class="hidden">
+        <!-- بطاقة رأس التطبيق (App header card) -->
+        <div class="card">
+          <div class="card-body text-center">
+            <div id="detail-icon" class="app-card-icon">
+              <img alt="" width="120" height="120" loading="lazy">
+            </div>
+            <div>
+              <h1 id="detail-name"></h1>
+              <span id="detail-platform" class="badge"></span>
+              <div class="app-card-meta">
+                <span id="detail-size"></span>
+                <span id="detail-version"></span>
+                <span id="detail-downloads"></span>
+                <span id="detail-rating"></span>
+              </div>
+              <div class="share-buttons">
+                <a id="detail-download" class="btn btn-primary btn-lg" href="#" target="_blank" rel="noopener"></a>
+                <a id="detail-report" class="btn btn-outline" href="#"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- قسما الوصف والمميزات + لقطات الشاشة (About/features + screenshots) -->
+        <div class="grid grid-2">
+          <section class="card">
+            <div class="card-body">
+              <h2 class="card-title" data-i18n="details.about"></h2>
+              <p id="detail-description" class="card-text"></p>
+              <h2 class="card-title" data-i18n="details.features"></h2>
+              <ul id="detail-features" class="footer-links"></ul>
+            </div>
+          </section>
+          <section class="card">
+            <div class="card-body">
+              <h2 class="card-title" data-i18n="details.screenshots"></h2>
+              <div id="app-gallery"></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- شريط التفاعل: ردود الفعل والمشاركة (Interaction bar: reactions + share) -->
+        <div class="card">
+          <div class="card-body">
+            <div id="reactions-container"></div>
+            <div>
+              <span class="form-label" data-i18n="details.share"></span>
+              <div id="share-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- تطبيقات ذات صلة (Related apps) -->
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="details.related"></h2>
+        </div>
+        <div class="grid grid-3" id="related-grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- التذييل (Footer) -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-section">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/img/logo/logo.svg" alt="HSA Come" class="logo-img" width="36" height="36">
+          <span class="logo-text">HSA <span class="logo-accent">Come</span></span>
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline"></p>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.quicklinks"></h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="nav.home"></a></li>
+          <li><a href="apps.html" data-i18n="nav.apps"></a></li>
+          <li><a href="about.html" data-i18n="nav.about"></a></li>
+          <li><a href="report-issue.html" data-i18n="nav.report"></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.contact"></h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span>
+            <a href="mailto:hsasinai@gmail.com">hsasinai@gmail.com</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+            <a href="tel:+201008361225" dir="ltr">+2 01008361225</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+            <a href="https://wa.me/201008361225" target="_blank" rel="noopener">WhatsApp</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p data-i18n="footer.rights"></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى (Back to top) -->
+  <button class="back-to-top" id="back-to-top" type="button" data-i18n-aria="back.to.top.aria" aria-label="العودة للأعلى">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+</body>
+</html>

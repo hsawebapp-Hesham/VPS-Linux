@@ -1,0 +1,284 @@
+// ============================================================
+//  HSA Come — نسخة مضمّنة من بيانات التطبيقات
+//  ------------------------------------------------------------
+//  هذا الملف يحتوي على نسخة طبق الأصل من data/apps.json
+//  ويُستخدم فقط عند فشل جلب الملف الأصلي عبر fetch
+//  (مثلاً عند فتح الصفحات عبر بروتوكول file:// حيث
+//  تحظر المتصفحات عملية fetch).
+//  عند التشغيل عبر خادم HTTP يكون data/apps.json هو
+//  المصدر الأساسي للبيانات — حافظ على مزامنة النسختين.
+//  ------------------------------------------------------------
+//  HSA Come — embedded copy of the apps database.
+//  This file mirrors data/apps.json and is used ONLY when
+//  the fetch fails (e.g. pages opened via the file://
+//  protocol where browsers block fetch).
+//  When served over HTTP, data/apps.json is the source of
+//  truth — keep both copies in sync.
+// ============================================================
+const APPS_FALLBACK = [
+  {
+    "id": "hsa-store",
+    "name": { "ar": "متجر HSA", "en": "HSA Store" },
+    "platform": "web",
+    "size": "4.2 MB",
+    "version": "3.0.1",
+    "rating": 4.9,
+    "downloads": 5200,
+    "likes": 340,
+    "dislikes": 6,
+    "icon": "assets/icons/hsa-store.svg",
+    "shortDescription": {
+      "ar": "قالب متجر إلكتروني متكامل بتصميم عصري وسريع",
+      "en": "A complete e-commerce web app template with a modern, fast design"
+    },
+    "fullDescription": {
+      "ar": "متجر HSA هو قالب متجر إلكتروني متكامل مصمم لعرض وبيع المنتجات بسهولة. يتميز بتصميم متجاوب يعمل على جميع الأجهزة، وسلة شراء سريعة، ولوحة تحكم لإدارة المنتجات والطلبات. يمكنك تخصيص الألوان والشعار والصفحات بسهولة دون الحاجة إلى خبرة برمجية.",
+      "en": "HSA Store is a complete e-commerce web template designed to showcase and sell products with ease. It features a responsive layout that works on all devices, a fast shopping cart, and a dashboard to manage products and orders. You can customize colors, logo, and pages easily without any coding experience."
+    },
+    "features": {
+      "ar": [
+        "تصميم متجاوب يتكيف مع جميع أحجام الشاشات",
+        "سلة شراء سريعة مع بوابات دفع متعددة",
+        "لوحة تحكم لإدارة المنتجات والمخزون",
+        "تحسين محركات البحث (SEO) مدمج",
+        "دعم كامل للغة العربية والإنجليزية"
+      ],
+      "en": [
+        "Responsive design that adapts to all screen sizes",
+        "Fast shopping cart with multiple payment gateways",
+        "Dashboard for managing products and inventory",
+        "Built-in search engine optimization (SEO)",
+        "Full Arabic and English language support"
+      ]
+    },
+    "screenshots": [
+      "assets/images/shots/hsa-store-1.svg",
+      "assets/images/shots/hsa-store-2.svg",
+      "assets/images/shots/hsa-store-3.svg"
+    ],
+    "downloadUrl": "#",
+    "featured": true,
+    "dateAdded": "2026-01-15"
+  },
+  {
+    "id": "hsa-notes",
+    "name": { "ar": "ملاحظات HSA", "en": "HSA Notes" },
+    "platform": "android",
+    "size": "18 MB",
+    "version": "2.1.0",
+    "rating": 4.8,
+    "downloads": 3400,
+    "likes": 210,
+    "dislikes": 4,
+    "icon": "assets/icons/hsa-notes.svg",
+    "shortDescription": {
+      "ar": "تطبيق ملاحظات بسيط وقوي لتدوين أفكارك في أي وقت",
+      "en": "A simple yet powerful note-taking app to capture your ideas anytime"
+    },
+    "fullDescription": {
+      "ar": "ملاحظات HSA هو تطبيق أندرويد لتدوين الملاحظات والنصوص بسرعة. يدعم التنظيم بالألوان والتصنيفات، والبحث الفوري، ومزامنة النسخ الاحتياطي. واجهة التطبيق خفيفة وسريعة وتعمل دون اتصال بالإنترنت.",
+      "en": "HSA Notes is an Android app for writing notes and text quickly. It supports organization with colors and categories, instant search, and backup sync. The app interface is lightweight, fast, and works offline."
+    },
+    "features": {
+      "ar": [
+        "إنشاء وتحرير الملاحظات بسرعة",
+        "تنظيم الملاحظات بالألوان والتصنيفات",
+        "بحث فوري داخل جميع الملاحظات",
+        "العمل دون اتصال بالإنترنت",
+        "نسخ احتياطي تلقائي على التخزين المحلي"
+      ],
+      "en": [
+        "Create and edit notes quickly",
+        "Organize notes with colors and categories",
+        "Instant search across all notes",
+        "Works offline without an internet connection",
+        "Automatic backup to local storage"
+      ]
+    },
+    "screenshots": [
+      "assets/images/shots/hsa-notes-1.svg",
+      "assets/images/shots/hsa-notes-2.svg",
+      "assets/images/shots/hsa-notes-3.svg"
+    ],
+    "downloadUrl": "#",
+    "featured": true,
+    "dateAdded": "2026-02-10"
+  },
+  {
+    "id": "hsa-calculator",
+    "name": { "ar": "حاسبة HSA", "en": "HSA Calculator" },
+    "platform": "desktop",
+    "size": "12 MB",
+    "version": "1.5.2",
+    "rating": 4.7,
+    "downloads": 2800,
+    "likes": 185,
+    "dislikes": 5,
+    "icon": "assets/icons/hsa-calculator.svg",
+    "shortDescription": {
+      "ar": "حاسبة علمية احترافية لنظام ويندوز بواجهة أنيقة",
+      "en": "A professional scientific calculator for Windows with an elegant interface"
+    },
+    "fullDescription": {
+      "ar": "حاسبة HSA هي حاسبة علمية لنظام ويندوز تجمع بين الدقة والبساطة. تدعم العمليات الحسابية المتقدمة والدوال المثلثية واللوغاريتمات. تحفظ سجل العمليات السابقة وتتيح نسخ النتائج بضغطة واحدة.",
+      "en": "HSA Calculator is a scientific calculator for Windows that combines accuracy with simplicity. It supports advanced arithmetic, trigonometric functions, and logarithms. It keeps a history of previous operations and lets you copy results with a single click."
+    },
+    "features": {
+      "ar": [
+        "عمليات حسابية متقدمة ودوال علمية",
+        "سجل للعمليات السابقة قابل للمراجعة",
+        "دعم الدوال المثلثية واللوغاريتمات",
+        "واجهة خفيفة وسريعة الإقلاع",
+        "نسخ النتائج إلى الحافظة مباشرة"
+      ],
+      "en": [
+        "Advanced arithmetic and scientific functions",
+        "Reviewable history of previous operations",
+        "Trigonometric and logarithmic functions support",
+        "Lightweight interface with fast startup",
+        "Copy results to the clipboard instantly"
+      ]
+    },
+    "screenshots": [
+      "assets/images/shots/hsa-calculator-1.svg",
+      "assets/images/shots/hsa-calculator-2.svg",
+      "assets/images/shots/hsa-calculator-3.svg"
+    ],
+    "downloadUrl": "#",
+    "featured": true,
+    "dateAdded": "2026-03-05"
+  },
+  {
+    "id": "hsa-chat",
+    "name": { "ar": "دردشة HSA", "en": "HSA Chat" },
+    "platform": "android",
+    "size": "24 MB",
+    "version": "1.2.0",
+    "rating": 4.5,
+    "downloads": 1900,
+    "likes": 140,
+    "dislikes": 9,
+    "icon": "assets/icons/hsa-chat.svg",
+    "shortDescription": {
+      "ar": "تطبيق مراسلة فورية بأسلوب نظيف وخصوصية عالية",
+      "en": "An instant messaging app with a clean style and high privacy"
+    },
+    "fullDescription": {
+      "ar": "دردشة HSA هو تطبيق مراسلة فورية لأندرويد بواجهة نظيفة وسهلة. يرسل الرسائل النصية والصور بسرعة، ويدعم المحادثات الجماعية وحالة الاتصال. يركز التطبيق على الخصوصية مع تشفير محلي للبيانات.",
+      "en": "HSA Chat is an instant messaging app for Android with a clean, easy interface. It sends text messages and images quickly, and supports group chats and contact status. The app focuses on privacy with local data encryption."
+    },
+    "features": {
+      "ar": [
+        "رسائل نصية وصور فورية",
+        "محادثات جماعية مع أصدقائك",
+        "حالة الاتصال والظهور",
+        "تشفير محلي للبيانات",
+        "واجهة خفيفة تستهلك طاقة قليلة"
+      ],
+      "en": [
+        "Instant text messages and images",
+        "Group chats with your friends",
+        "Online and presence status",
+        "Local data encryption",
+        "Lightweight interface with low battery usage"
+      ]
+    },
+    "screenshots": [
+      "assets/images/shots/hsa-chat-1.svg",
+      "assets/images/shots/hsa-chat-2.svg",
+      "assets/images/shots/hsa-chat-3.svg"
+    ],
+    "downloadUrl": "#",
+    "featured": false,
+    "dateAdded": "2026-04-18"
+  },
+  {
+    "id": "hsa-backup",
+    "name": { "ar": "نسخ HSA", "en": "HSA Backup" },
+    "platform": "desktop",
+    "size": "9 MB",
+    "version": "2.0.4",
+    "rating": 4.6,
+    "downloads": 1500,
+    "likes": 120,
+    "dislikes": 3,
+    "icon": "assets/icons/hsa-backup.svg",
+    "shortDescription": {
+      "ar": "أداة نسخ احتياطي تلقائي لملفاتك المهمة على ويندوز",
+      "en": "An automatic backup tool for your important files on Windows"
+    },
+    "fullDescription": {
+      "ar": "نسخ HSA هي أداة سطح مكتب تقوم بعمل نسخ احتياطية تلقائية لملفاتك المهمة. تحدد المجلدات وجدولة النسخ يومياً أو أسبوعياً، مع ضغط الملفات لتوفير المساحة. تستعيد ملفاتك بنقرة واحدة عند الحاجة.",
+      "en": "HSA Backup is a desktop tool that makes automatic backups of your important files. You choose the folders and schedule backups daily or weekly, with file compression to save space. Restore your files with a single click whenever needed."
+    },
+    "features": {
+      "ar": [
+        "نسخ احتياطي تلقائي مجدول",
+        "اختيار المجلدات والملفات المهمة",
+        "ضغط الملفات لتوفير المساحة",
+        "استعادة سريعة بنقرة واحدة",
+        "إشعارات عند اكتمال النسخ"
+      ],
+      "en": [
+        "Scheduled automatic backups",
+        "Choose important folders and files",
+        "File compression to save space",
+        "Quick restore with one click",
+        "Notifications when backup completes"
+      ]
+    },
+    "screenshots": [
+      "assets/images/shots/hsa-backup-1.svg",
+      "assets/images/shots/hsa-backup-2.svg",
+      "assets/images/shots/hsa-backup-3.svg"
+    ],
+    "downloadUrl": "#",
+    "featured": false,
+    "dateAdded": "2026-05-22"
+  },
+  {
+    "id": "hsa-portfolio",
+    "name": { "ar": "أعمال HSA", "en": "HSA Portfolio" },
+    "platform": "web",
+    "size": "3.8 MB",
+    "version": "1.1.0",
+    "rating": 4.8,
+    "downloads": 2100,
+    "likes": 175,
+    "dislikes": 2,
+    "icon": "assets/icons/hsa-portfolio.svg",
+    "shortDescription": {
+      "ar": "قالب أعمال شخصي لعرض مشاريعك ومهاراتك باحترافية",
+      "en": "A personal portfolio template to showcase your projects and skills professionally"
+    },
+    "fullDescription": {
+      "ar": "أعمال HSA هو قالب ويب لعرض الأعمال الشخصية والمشاريع بتصميم أنيق. يتضمن صفحة رئيسية جذابة، معرض مشاريع، ونموذج تواصل. القالب متجاوب بالكامل ومحسّن للسرعة ومتاح بلغتين.",
+      "en": "HSA Portfolio is a web template for showcasing personal work and projects with an elegant design. It includes an attractive home page, a project gallery, and a contact form. The template is fully responsive, speed-optimized, and available in two languages."
+    },
+    "features": {
+      "ar": [
+        "صفحة رئيسية جذابة مع معرض مشاريع",
+        "تصميم متجاوب لجميع الأجهزة",
+        "نموذج تواصل مباشر",
+        "محسّن للسرعة ومحركات البحث",
+        "دعم اللغتين العربية والإنجليزية"
+      ],
+      "en": [
+        "Attractive home page with project gallery",
+        "Responsive design for all devices",
+        "Direct contact form",
+        "Optimized for speed and search engines",
+        "Arabic and English language support"
+      ]
+    },
+    "screenshots": [
+      "assets/images/shots/hsa-portfolio-1.svg",
+      "assets/images/shots/hsa-portfolio-2.svg",
+      "assets/images/shots/hsa-portfolio-3.svg"
+    ],
+    "downloadUrl": "#",
+    "featured": false,
+    "dateAdded": "2026-06-30"
+  }
+];
+if (typeof window !== 'undefined') { window.APPS_FALLBACK = APPS_FALLBACK; }

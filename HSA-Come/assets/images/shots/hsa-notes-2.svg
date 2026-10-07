@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="110" cy="90" r="90" fill="#FFFFFF" opacity="0.08"/>
+  <circle cx="1190" cy="640" r="110" fill="#FFFFFF" opacity="0.08"/>
+  <rect x="490" y="60" width="300" height="600" rx="40" fill="#FFFFFF"/>
+  <rect x="504" y="74" width="272" height="572" rx="28" fill="#F8FAFC"/>
+  <rect x="596" y="86" width="88" height="14" rx="7" fill="#E2E8F0"/>
+  <path d="M528 128l-10 10 10 10" fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="118" width="120" height="20" rx="10" fill="#8B5CF6" opacity="0.6"/>
+  <rect x="690" y="116" width="60" height="24" rx="12" fill="#8B5CF6" opacity="0.75"/>
+  <rect x="524" y="160" width="228" height="40" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="540" y="172" width="140" height="14" rx="7" fill="#94A3B8" opacity="0.5"/>
+  <rect x="524" y="216" width="228" height="260" rx="14" fill="#FFFFFF"/>
+  <rect x="540" y="236" width="196" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="258" width="196" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="280" width="180" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="302" width="196" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="324" width="160" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="346" width="196" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="368" width="140" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="390" width="196" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="540" y="412" width="170" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="524" y="496" width="228" height="40" rx="14" fill="#FFFFFF"/>
+  <circle cx="552" cy="516" r="12" fill="#8B5CF6" opacity="0.8"/>
+  <circle cx="588" cy="516" r="12" fill="#06B6D4" opacity="0.8"/>
+  <circle cx="624" cy="516" r="12" fill="#10B981" opacity="0.8"/>
+  <circle cx="660" cy="516" r="12" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="696" cy="516" r="12" fill="#EF4444" opacity="0.8"/>
+  <rect x="524" y="556" width="228" height="44" rx="14" fill="#8B5CF6" opacity="0.85"/>
+  <text x="640" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#FFFFFF">ملاحظات HSA — التحرير</text>
+</svg>

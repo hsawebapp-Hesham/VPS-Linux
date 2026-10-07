@@ -1,0 +1,14 @@
+{
+  "name": "HSA Come",
+  "short_name": "HSA Come",
+  "description": "مدونة HSA Come الشخصية لعرض تطبيقات المطور | HSA Come — a personal blog showcasing developer apps",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "ar",
+  "background_color": "#F8FAFC",
+  "theme_color": "#6366F1",
+  "icons": [
+    { "src": "assets/img/logo/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,1524 @@
+/* ============================================================
+   HSA Come — أنماط المكونات (Components)
+   جميع الألوان من متغيرات themes.css — خصائص منطقية لدعم RTL/LTR
+   (All colors from CSS variables — logical properties for RTL/LTR)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   إعادة التعيين والأساسيات (Reset & base)
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   أدوات عامة (Utilities)
+   ------------------------------------------------------------ */
+.container {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--spacing-lg);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* رابط تخطي التنقل — يظهر عند التركيز فقط
+   (Skip link — visible only on focus) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  inset-inline-start: var(--spacing-md);
+  z-index: var(--z-modal);
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 700;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--spacing-md);
+}
+
+/* ------------------------------------------------------------
+   الترويسة (Header)
+   ------------------------------------------------------------ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: color-mix(in srgb, var(--bg-secondary) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  transition: box-shadow var(--transition-normal), background var(--transition-normal);
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  gap: var(--spacing-md);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.logo-accent {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* روابط التنقل — سلوك القائمة الجانبية في الجوال داخل responsive.css
+   (Nav links — off-canvas mobile behavior lives in responsive.css) */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  padding-block: var(--spacing-xs);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* خط سفلي متحرك بتدرج لوني عند التمرير (Animated gradient underline on hover) */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-normal);
+}
+
+[dir="rtl"] .nav-link::after {
+  transform-origin: right center;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* زر تبديل اللغة (Language toggle) */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.lang-toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.lang-label {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+/* زر السمة — يعرض الشمس في الوضع الداكن والقمر في الفاتح
+   (Theme toggle — sun icon in dark mode, moon in light mode) */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: inline-flex;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* زر القائمة hamburger — 3 أشرطة تتحول إلى X (3 spans animated to X) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ------------------------------------------------------------
+   الأزرار (Buttons)
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal),
+    background var(--transition-normal), color var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  background: var(--gradient-secondary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: var(--text-inverse);
+}
+
+.btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+.btn-sm {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.875rem;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ------------------------------------------------------------
+   قسم البطل (Hero)
+   ------------------------------------------------------------ */
+.hero {
+  min-height: calc(100vh - var(--header-height));
+  background: var(--gradient-hero);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-2xl);
+}
+
+/* كرات متدرجة زخرفية ضبابية (Decorative blurred gradient blobs) */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero::before {
+  background: var(--gradient-primary);
+  top: -100px;
+  inset-inline-start: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero::after {
+  background: var(--gradient-secondary);
+  bottom: -100px;
+  inset-inline-end: -100px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--spacing-lg);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    var(--gradient-primary) border-box;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-block: var(--spacing-md);
+}
+
+.hero-title span {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-block: var(--spacing-md) var(--spacing-xl);
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--spacing-2xl);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-block-start: var(--spacing-2xl);
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-stat-label {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* ------------------------------------------------------------
+   الأقسام (Sections)
+   ------------------------------------------------------------ */
+.section {
+  padding-block: var(--spacing-3xl);
+}
+
+.section-header {
+  text-align: center;
+  margin-block-end: var(--spacing-2xl);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+/* خط سفلي متدرج كزخرفة تحت العنوان (Gradient underline accent) */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  inset-inline-start: 50%;
+  width: 64px;
+  height: 4px;
+  transform: translateX(-50%);
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-inline: auto;
+  margin-block-start: var(--spacing-md);
+}
+
+/* ------------------------------------------------------------
+   الشبكات (Grids)
+   ------------------------------------------------------------ */
+.grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ------------------------------------------------------------
+   إشعار تعطيل JavaScript (No-JS notice banner)
+   ------------------------------------------------------------ */
+.noscript-notice {
+  background: var(--color-primary-dark);
+  color: var(--text-inverse);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  max-width: var(--container-width);
+  text-align: center;
+  border-radius: var(--radius-md);
+}
+
+/* ------------------------------------------------------------
+   البطاقات (Cards)
+   ------------------------------------------------------------ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.card-body {
+  padding: var(--spacing-lg);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-block-end: var(--spacing-sm);
+}
+
+.card-text {
+  color: var(--text-secondary);
+}
+
+.card-footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--border-light);
+}
+
+/* ------------------------------------------------------------
+   بطاقات التطبيقات (App cards)
+   ------------------------------------------------------------ */
+.app-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.app-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-primary);
+  padding: 6px;
+  margin: var(--spacing-lg) auto var(--spacing-md);
+}
+
+.app-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--radius-xl) - 6px);
+  object-fit: cover;
+  background: var(--bg-card);
+}
+
+.app-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-block-end: var(--spacing-sm);
+}
+
+.app-card-platform {
+  margin-block-end: var(--spacing-sm);
+}
+
+.app-card-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: 0 var(--spacing-lg);
+}
+
+.app-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.app-card-meta svg {
+  width: 14px;
+  height: 14px;
+}
+
+.app-card-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-top: auto;
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+}
+
+/* ------------------------------------------------------------
+   الشارات (Badges)
+   ------------------------------------------------------------ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-web {
+  background: color-mix(in srgb, var(--color-info) 12%, var(--bg-card));
+  color: color-mix(in srgb, var(--color-info) 65%, var(--text-primary));
+}
+
+.badge-desktop {
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--bg-card));
+  color: color-mix(in srgb, var(--color-primary) 65%, var(--text-primary));
+}
+
+.badge-android {
+  background: color-mix(in srgb, var(--color-success) 12%, var(--bg-card));
+  color: color-mix(in srgb, var(--color-success) 65%, var(--text-primary));
+}
+
+.badge-status-review {
+  background: color-mix(in srgb, var(--color-warning) 14%, var(--bg-card));
+  color: color-mix(in srgb, var(--color-warning) 60%, var(--text-primary));
+}
+
+.badge-status-replied {
+  background: color-mix(in srgb, var(--color-success) 12%, var(--bg-card));
+  color: color-mix(in srgb, var(--color-success) 65%, var(--text-primary));
+}
+
+/* ------------------------------------------------------------
+   بطاقات التصنيفات (Category cards)
+   ------------------------------------------------------------ */
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-xl);
+  text-decoration: none;
+  border: 2px solid var(--border-color);
+}
+
+.category-card:hover {
+  border-color: transparent;
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    var(--gradient-primary) border-box;
+}
+
+.category-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-inverse);
+  margin-block-end: var(--spacing-md);
+}
+
+.category-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.category-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-block-end: var(--spacing-xs);
+}
+
+.category-count {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* تسمية عرض الكل داخل بطاقة التصنيف (View-all label in category card) */
+.category-view {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-block-start: var(--spacing-sm);
+}
+
+/* ------------------------------------------------------------
+   شريط الفلترة (Filter bar)
+   ------------------------------------------------------------ */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-box svg {
+  position: absolute;
+  inset-inline-start: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-inline-start: calc(var(--spacing-md) + 24px);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.filter-tab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-tab.active {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border-color: transparent;
+}
+
+/* ------------------------------------------------------------
+   الهيكل العظمي (Skeleton loading)
+   ------------------------------------------------------------ */
+.skeleton {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%,
+    color-mix(in srgb, var(--bg-secondary) 55%, var(--bg-tertiary)) 50%,
+    var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+.skeleton-card {
+  height: 220px;
+  border-radius: var(--radius-lg);
+}
+
+/* ------------------------------------------------------------
+   المعرض (Gallery)
+   ------------------------------------------------------------ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.gallery-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-tertiary);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------
+   العارض الضوئي (Lightbox)
+   ------------------------------------------------------------ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: var(--z-modal);
+  display: none;
+}
+
+.lightbox.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+  box-shadow: var(--shadow-lg);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--spacing-lg);
+  inset-inline-end: var(--spacing-lg);
+  background: color-mix(in srgb, var(--text-inverse) 15%, transparent);
+  color: var(--text-inverse);
+}
+
+.lightbox-close:hover {
+  background: color-mix(in srgb, var(--text-inverse) 30%, transparent);
+  color: var(--text-inverse);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: color-mix(in srgb, var(--text-inverse) 15%, transparent);
+  color: var(--text-inverse);
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: color-mix(in srgb, var(--text-inverse) 30%, transparent);
+  color: var(--text-inverse);
+}
+
+.lightbox-prev {
+  inset-inline-start: var(--spacing-lg);
+}
+
+.lightbox-next {
+  inset-inline-end: var(--spacing-lg);
+}
+
+/* ------------------------------------------------------------
+   ردود الفعل (Reactions)
+   ------------------------------------------------------------ */
+.reactions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.reaction-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast), border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.reaction-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.reaction-btn.active-like {
+  background: color-mix(in srgb, var(--color-success) 12%, var(--bg-card));
+  border-color: var(--color-success);
+  color: color-mix(in srgb, var(--color-success) 65%, var(--text-primary));
+}
+
+.reaction-btn.active-dislike {
+  background: color-mix(in srgb, var(--color-danger) 12%, var(--bg-card));
+  border-color: var(--color-danger);
+  color: color-mix(in srgb, var(--color-danger) 65%, var(--text-primary));
+}
+
+.reaction-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------
+   النجوم (Stars)
+   ------------------------------------------------------------ */
+.stars {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.star {
+  color: var(--border-color);
+}
+
+.star.star-filled {
+  /* كهرماني داكن يحقق تباين AA على البطاقة الفاتحة
+     (Dark amber — AA on light card background) */
+  color: #B45309;
+}
+
+[data-theme="dark"] .star.star-filled {
+  color: var(--color-warning);
+}
+
+.star svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* ------------------------------------------------------------
+   المشاركة (Share buttons)
+   ------------------------------------------------------------ */
+.share-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.share-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.share-btn:hover {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.share-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ------------------------------------------------------------
+   النماذج (Forms)
+   ------------------------------------------------------------ */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+textarea.form-control {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-control.invalid {
+  border-color: var(--color-danger);
+}
+
+.form-error {
+  /* أحمر داكن يحقق تباين AA على خلفية البطاقة الفاتحة
+     (Dark red — AA on light card background) */
+  color: #B91C1C;
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  display: none;
+}
+
+.form-error.show {
+  display: block;
+}
+
+[data-theme="dark"] .form-error {
+  /* أحمر فاتح يحقق تباين AA على خلفية البطاقة الداكنة
+     (Light red — AA on dark card background) */
+  color: #F87171;
+}
+
+.form-hint {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+}
+
+.form-success {
+  background: color-mix(in srgb, var(--color-success) 10%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--color-success) 40%, transparent);
+  color: color-mix(in srgb, var(--color-success) 65%, var(--text-primary));
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  display: none;
+}
+
+.form-success.show {
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   بطاقة الملف الشخصي (Profile card — about)
+   ------------------------------------------------------------ */
+.profile-card {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+/* حلقة متدرجة حول الصورة عبر خدعة الحشوة (Gradient ring via padding trick) */
+.profile-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius-full);
+  padding: 4px;
+  background: var(--gradient-primary);
+  margin-inline: auto;
+  margin-block-end: var(--spacing-md);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.profile-role {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  margin-block: var(--spacing-sm);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.profile-bio {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  margin-block: var(--spacing-lg);
+}
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-item a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-item a:hover {
+  color: var(--color-primary);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.skill-tag {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   قائمة المشكلات (Issues list)
+   ------------------------------------------------------------ */
+.issue-item {
+  padding: var(--spacing-lg);
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.issue-app {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.issue-date {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.issue-message {
+  color: var(--text-secondary);
+}
+
+.issue-reply {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  border-inline-start: 4px solid var(--color-primary);
+  margin-top: var(--spacing-md);
+  color: var(--text-secondary);
+}
+
+/* ------------------------------------------------------------
+   التذييل (Footer)
+   ------------------------------------------------------------ */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+  padding-block: var(--spacing-2xl);
+}
+
+.footer-section h3 {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding-block: var(--spacing-md);
+}
+
+/* ------------------------------------------------------------
+   العودة للأعلى (Back to top)
+   ------------------------------------------------------------ */
+.back-to-top {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  inset-inline-end: var(--spacing-lg);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal),
+    visibility var(--transition-normal), box-shadow var(--transition-normal);
+  z-index: var(--z-header);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ------------------------------------------------------------
+   التنبيهات المنبثقة (Toasts)
+   ------------------------------------------------------------ */
+.toast-container {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  inset-inline: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  z-index: var(--z-toast);
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-inline-start: 4px solid var(--color-info);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--text-primary);
+  min-width: 250px;
+  max-width: 400px;
+  animation: toast-slide-in var(--transition-normal);
+}
+
+.toast-success {
+  border-inline-start-color: var(--color-success);
+}
+
+.toast-error {
+  border-inline-start-color: var(--color-danger);
+}
+
+.toast-info {
+  border-inline-start-color: var(--color-info);
+}
+
+.toast.hide {
+  animation: toast-fade-out var(--transition-normal) forwards;
+}
+
+/* ------------------------------------------------------------
+   الظهور عند التمرير (Scroll reveal)
+   ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   حركات المفتاح (Keyframes)
+   ------------------------------------------------------------ */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

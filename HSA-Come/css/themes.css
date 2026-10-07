@@ -1,0 +1,201 @@
+/* ============================================================
+   HSA Come — سمات الموقع (Themes)
+   الخطوط المحلية + المتغيرات الأساسية للسمة الفاتحة والداكنة
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   خط Cairo المحلي — ملفات الخط موجودة في assets/fonts/ بشكل منفصل
+   (Self-hosted Cairo font — font files are placed in assets/fonts/ separately)
+   ------------------------------------------------------------ */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/Cairo-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Cairo-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/Cairo-SemiBold.woff2') format('woff2'),
+       url('../assets/fonts/Cairo-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Cairo-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Cairo-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../assets/fonts/Cairo-Black.woff2') format('woff2'),
+       url('../assets/fonts/Cairo-Black.woff') format('woff');
+}
+
+/* ------------------------------------------------------------
+   السمة الفاتحة (Light theme — default)
+   ------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+
+  /* الخطوط (Typography) */
+  /* LeelawUI is a fallback for when the Cairo woff2 files are not yet present; replace it by removing once Cairo files are added. */
+  --font-family: 'Cairo', 'LeelawUI', 'Segoe UI', Tahoma, system-ui, sans-serif;
+
+  /* ألوان الهوية (Brand colors) */
+  --color-primary: #4F46E5;
+  --color-primary-dark: #4338CA;
+  --color-primary-light: #A5B4FC;
+  --color-secondary: #7C3AED;
+  --color-accent: #06B6D4;
+
+  /* التدرجات اللونية (Gradients) */
+  --gradient-primary: linear-gradient(135deg, #4F46E5, #7C3AED);
+  --gradient-secondary: linear-gradient(135deg, #7C3AED, #0E7490);
+  --gradient-hero: linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 50%, #ECFEFF 100%);
+  --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+
+  /* الخلفيات (Backgrounds) */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F5F9;
+  --bg-card: #FFFFFF;
+
+  /* ألوان النصوص (Text colors) */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+
+  /* الحدود والظلال (Borders & shadows) */
+  --border-color: #E2E8F0;
+  --border-light: #F1F5F9;
+  --shadow-sm: 0 1px 2px rgba(15,23,42,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15,23,42,0.1), 0 4px 6px -4px rgba(15,23,42,0.08);
+  --shadow-glow: 0 0 20px rgba(99,102,241,0.35);
+
+  /* ألوان الحالة (Status colors) */
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+
+  /* الزوايا المستديرة (Radii) */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* المسافات (Spacing) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* الانتقالات (Transitions) */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* أبعاد التخطيط (Layout dimensions) */
+  --header-height: 72px;
+  --container-width: 1200px;
+
+  /* طبقات العرض (Z-index layers) */
+  --z-header: 100;
+  --z-modal: 1000;
+  --z-toast: 1100;
+
+  /* طبقة التعتيم للنوافذ العائمة (Overlay for lightbox/modals) */
+  --color-overlay: rgb(2 6 23 / 0.9);
+}
+
+/* ------------------------------------------------------------
+   السمة الداكنة (Dark theme)
+   ألوان الهوية تصبح أفتح لتحقق تباين AA على الخلفيات الداكنة
+   (Brand colors lighten to meet AA contrast on dark backgrounds)
+   ------------------------------------------------------------ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ألوان الهوية (Brand colors — 4.9:1+ على خلفية #1E293B) */
+  --color-primary: #818CF8;
+  --color-secondary: #A78BFA;
+
+  /* التدرجات (Gradients — dark indigo tones) */
+  --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #082F49 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05));
+
+  /* الخلفيات (Backgrounds) */
+  --bg-primary: #0B1120;
+  --bg-secondary: #0F172A;
+  --bg-tertiary: #1E293B;
+  --bg-card: #1E293B;
+
+  /* ألوان النصوص (Text colors) */
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  /* الحدود (Borders) */
+  --border-color: #334155;
+  --border-light: #1E293B;
+
+  /* ظلال أغمق للوضع الداكن (Darker shadows for dark mode) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -2px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -4px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 20px rgba(99,102,241,0.5);
+}
+
+/* ------------------------------------------------------------
+   شريط التمرير (Scrollbar) — يتكيف مع السمة تلقائياً عبر المتغيرات
+   (Adapts to both themes automatically via variables)
+   ------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* تحديد النص (Text selection) */
+::selection {
+  background: var(--color-primary);
+  color: var(--text-inverse);
+}
+
+/* تحديد النص في الوضع الداكن — خلفية ثابتة تحقق تباين AA مع النص الأبيض
+   (Dark theme selection — fixed AA-passing background with white text) */
+[data-theme="dark"] ::selection {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
