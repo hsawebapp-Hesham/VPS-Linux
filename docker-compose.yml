@@ -42,8 +42,10 @@ services:
       retries: 3
       start_period: 5s
     depends_on:
-      - hsa-come
-      - hsa-notes
+      hsa-come:
+        condition: service_healthy
+      hsa-notes:
+        condition: service_healthy
     networks:
       - vps-network
 
