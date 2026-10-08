@@ -1,0 +1,173 @@
+html[dir="rtl"] {
+  text-align: right;
+}
+
+html[dir="rtl"] .topbar,
+html[dir="rtl"] .page-content,
+html[dir="rtl"] .auth-model,
+html[dir="rtl"] .modal-body,
+html[dir="rtl"] .card,
+html[dir="rtl"] .glass-panel {
+  text-align: right;
+}
+
+html[dir="rtl"] .brand-lockup,
+html[dir="rtl"] .sidebar-context,
+html[dir="rtl"] .nav-item,
+html[dir="rtl"] .sidebar-logout,
+html[dir="rtl"] .security-note,
+html[dir="rtl"] .user-menu-button,
+html[dir="rtl"] .page-header,
+html[dir="rtl"] .toolbar,
+html[dir="rtl"] .data-card-top,
+html[dir="rtl"] .data-card-title-row,
+html[dir="rtl"] .data-card-actions,
+html[dir="rtl"] .data-card-footer,
+html[dir="rtl"] .credential-header,
+html[dir="rtl"] .credential-field,
+html[dir="rtl"] .note-card-header,
+html[dir="rtl"] .note-card-footer,
+html[dir="rtl"] .sync-status,
+html[dir="rtl"] .sync-time,
+html[dir="rtl"] .setting-row,
+html[dir="rtl"] .option-row,
+html[dir="rtl"] .archive-row,
+html[dir="rtl"] .archive-actions,
+html[dir="rtl"] .generator-output-header,
+html[dir="rtl"] .editor-footer,
+html[dir="rtl"] .auth-mode-toggle,
+html[dir="rtl"] .modal-header,
+html[dir="rtl"] .modal-footer,
+html[dir="rtl"] .about-contact-link {
+  text-align: right;
+}
+
+html[dir="rtl"] .sidebar {
+  border-left: 0;
+}
+
+html[dir="rtl"] .nav-item::before {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+}
+
+html[dir="rtl"] .user-menu-button {
+  padding: 0.35rem 0.7rem 0.35rem 0.5rem;
+}
+
+html[dir="rtl"] .input-control input,
+html[dir="rtl"] .select-control select,
+html[dir="rtl"] .global-search {
+  padding-inline: 0.85rem 2.85rem;
+}
+
+html[dir="rtl"] .textarea-control textarea {
+  padding: 0.85rem;
+}
+
+html[dir="rtl"] .secret-value,
+html[dir="rtl"] .credential-field-value > span,
+html[dir="rtl"] .mono-text,
+html[dir="rtl"] .about-contact-copy strong {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="rtl"] .auth-mode-toggle-icon .icon,
+html[dir="rtl"] .section-link .icon,
+html[dir="rtl"] .quick-action > .icon,
+html[dir="rtl"] .icon-trailing {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .switch {
+  direction: ltr;
+}
+
+html[dir="rtl"] .switch:has(input:checked) .switch-slider {
+  transform: translateX(1.15rem);
+}
+
+html[dir="rtl"] .editor-area {
+  text-align: right;
+}
+
+html[dir="rtl"] .editor-area ul,
+html[dir="rtl"] .editor-area ol {
+  padding-right: 1.4rem;
+  padding-left: 0;
+}
+
+html[dir="rtl"] .editor-area blockquote {
+  padding-right: 0.9rem;
+  padding-left: 0;
+  border-right: 0.2rem solid var(--color-accent);
+  border-left: 0;
+}
+
+html[dir="rtl"] .modal-footer,
+html[dir="rtl"] .confirm-dialog-actions,
+html[dir="rtl"] .generator-output-actions,
+html[dir="rtl"] .sync-hero-actions {
+  text-align: right;
+}
+
+html[dir="rtl"] .about-contact-link:hover {
+  transform: translateX(-2px);
+}
+
+html[dir="rtl"] .dropdown-item,
+html[dir="rtl"] .popover-item,
+html[dir="rtl"] .command-result {
+  text-align: right;
+}
+
+html[dir="rtl"] .toast-copy,
+html[dir="rtl"] .alert-copy,
+html[dir="rtl"] .activity-item-copy,
+html[dir="rtl"] .sync-history-item-copy,
+html[dir="rtl"] .archive-copy,
+html[dir="rtl"] .health-card p,
+html[dir="rtl"] .empty-state p {
+  text-align: right;
+}
+
+html[dir="rtl"] .brand-status,
+html[dir="rtl"] .model-label,
+html[dir="rtl"] .status-pill,
+html[dir="rtl"] .badge,
+html[dir="rtl"] .tag,
+html[dir="rtl"] .filter-chip,
+html[dir="rtl"] .category-chip {
+  text-align: right;
+}
+
+@media (max-width: 60rem) {
+  html[dir="rtl"] .sidebar {
+    transform: translateX(105%);
+  }
+
+  html[dir="rtl"] .sidebar.is-open,
+  html[dir="rtl"] body.sidebar-open .sidebar,
+  html[dir="rtl"] body[data-sidebar-open="true"] .sidebar {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 47rem) {
+  html[dir="rtl"] .topbar {
+    padding-inline: 1rem;
+  }
+
+  html[dir="rtl"] .page-content {
+    padding-inline: 1rem;
+  }
+
+  html[dir="rtl"] .auth-screen {
+    padding-inline: 0.7rem;
+  }
+
+  html[dir="rtl"] .mobile-nav {
+    padding-inline: 0.25rem;
+  }
+}

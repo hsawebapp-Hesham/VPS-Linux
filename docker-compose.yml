@@ -1,0 +1,35 @@
+services:
+
+  hsa-come:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./HSA-Come:/usr/share/nginx/html:ro
+    networks:
+      - vps-network
+
+  hsa-notes:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./HSA-Notes:/usr/share/nginx/html:ro
+    networks:
+      - vps-network
+
+  reverse-proxy:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    volumes:
+      - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - hsa-come
+      - hsa-notes
+    networks:
+      - vps-network
+
+networks:
+  vps-network:
+    external: true
+    name: vps-network

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102235">
+  <meta id="app-description" name="description" content="مساحتك الخاصة، مرتبة وآمنة">
+  <title data-i18n="app.name">HSA Notes</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Cairo-Arabic-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Cairo-Latin-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body data-theme="light" data-locale="ar" data-route="dashboard">
+  <a class="skip-link" href="#page-content" data-i18n="common.skipToContent">انتقل إلى المحتوى</a>
+
+  <div id="splash-screen" class="splash-screen" aria-live="polite" aria-label="HSA Notes">
+    <div class="splash-content">
+      <div class="splash-logo-wrap">
+        <img class="splash-logo" src="assets/logo/hsa-notes-logo.svg" alt="HSA Notes">
+        <span class="splash-orbit splash-orbit-one"></span>
+        <span class="splash-orbit splash-orbit-two"></span>
+      </div>
+      <div class="splash-brand-name">HSA Notes</div>
+      <div class="splash-loader" aria-hidden="true"><span></span></div>
+      <span class="splash-caption" data-i18n="app.loadingSecureWorkspace">جارٍ تجهيز مساحتك الآمنة</span>
+    </div>
+  </div>
+
+  <section id="auth-screen" class="auth-screen" aria-labelledby="auth-mode-title">
+    <div class="auth-backdrop auth-backdrop-one" aria-hidden="true"></div>
+    <div class="auth-backdrop auth-backdrop-two" aria-hidden="true"></div>
+    <div id="auth-panel" class="auth-panel">
+      <div class="auth-brand auth-panel-section">
+        <div class="auth-brand-topline">
+          <span class="brand-kicker" data-i18n="app.secureByDesign">مصمم للخصوصية</span>
+          <span class="brand-status"><span class="status-dot"></span><span data-i18n="common.localFirst">محلي أولاً</span></span>
+        </div>
+        <div class="auth-brand-lockup">
+          <span class="brand-symbol brand-symbol-large" aria-hidden="true">
+            <svg class="icon icon-brand"><use href="assets/icons/sprite.svg#icon-logo"></use></svg>
+          </span>
+          <span class="brand-wordmark">HSA <strong>Notes</strong></span>
+        </div>
+        <p class="auth-brand-copy" data-i18n="auth.brandDescription">مساحة واحدة منظّمة لمفاتيحك وبياناتك وملاحظاتك، مع بقاء بياناتك الخاصة بك.</p>
+        <ul class="auth-feature-list" aria-label="مزايا HSA Notes" data-i18n-aria-label="auth.featuresLabel">
+          <li>
+            <span class="feature-icon feature-icon-mint"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
+            <span><strong data-i18n="auth.featureEncryptionTitle">تشفير محلي</strong><small data-i18n="auth.featureEncryptionText">بياناتك مشفرة قبل أن تصل إلى مساحة التخزين.</small></span>
+          </li>
+          <li>
+            <span class="feature-icon feature-icon-gold"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-sparkles"></use></svg></span>
+            <span><strong data-i18n="auth.featureOfflineTitle">يعمل دون اتصال</strong><small data-i18n="auth.featureOfflineText">كل أدواتك الأساسية متاحة حتى بدون إنترنت.</small></span>
+          </li>
+          <li>
+            <span class="feature-icon feature-icon-blue"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-activity"></use></svg></span>
+            <span><strong data-i18n="auth.featureControlTitle">تحكم كامل</strong><small data-i18n="auth.featureControlText">نسخة احتياطية ومزامنة اختيارية بين يديك.</small></span>
+          </li>
+        </ul>
+        <div class="auth-trust-row">
+          <span class="trust-line"></span>
+          <span data-i18n="auth.privateWorkspace">مساحة عمل شخصية وخاصة</span>
+          <span class="trust-line"></span>
+        </div>
+      </div>
+
+      <div class="auth-model auth-panel-section">
+        <div class="auth-model-topline">
+          <span class="model-label"><span class="model-pulse"></span><span data-i18n="auth.secureWorkspace">مساحة آمنة</span></span>
+          <span class="model-version" data-i18n="app.versionLabel">الإصدار 1.0</span>
+        </div>
+        <div class="auth-form-heading">
+          <span class="section-eyebrow" data-i18n="auth.welcomeBack">مرحباً بعودتك</span>
+          <h1 id="auth-mode-title" data-i18n="auth.loginTitle">تسجيل الدخول</h1>
+          <p id="auth-mode-subtitle" data-i18n="auth.loginSubtitle">أدخل كلمة المرور الرئيسية للوصول إلى مساحتك.</p>
+        </div>
+        <form id="auth-form" class="auth-form" data-auth-form="true" novalidate>
+          <div class="form-field">
+            <label for="master-password" data-i18n="auth.masterPassword">كلمة المرور الرئيسية</label>
+            <div class="input-control">
+              <span class="input-leading" aria-hidden="true"><svg class="icon"><use href="assets/icons/sprite.svg#icon-lock"></use></svg></span>
+              <input id="master-password" name="master-password" type="password" autocomplete="current-password" minlength="8" required data-i18n-placeholder="auth.masterPasswordPlaceholder" placeholder="أدخل كلمة المرور الرئيسية">
+              <button id="master-password-toggle" class="input-action" type="button" aria-label="إظهار كلمة المرور" aria-pressed="false" data-icon="eye" data-action="show-password" data-password-target="master-password" data-i18n-aria-label="common.showPassword">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-eye"></use></svg>
+              </button>
+            </div>
+          </div>
+          <div id="confirm-password-field" class="form-field is-hidden" data-confirm-password-field>
+            <label for="confirm-master-password" data-i18n="auth.confirmPassword">تأكيد كلمة المرور الرئيسية</label>
+            <div class="input-control">
+              <span class="input-leading" aria-hidden="true"><svg class="icon"><use href="assets/icons/sprite.svg#icon-key-round"></use></svg></span>
+              <input id="confirm-master-password" name="confirm-master-password" type="password" autocomplete="new-password" minlength="8" data-i18n-placeholder="auth.confirmPasswordPlaceholder" placeholder="أعد كتابة كلمة المرور الرئيسية">
+            </div>
+          </div>
+          <div id="auth-strength-wrap" class="auth-strength-wrap" hidden>
+            <div class="strength-meta">
+              <span data-i18n="auth.passwordStrength">قوة كلمة المرور</span>
+              <span id="auth-strength-label" class="strength-label" data-i18n="auth.strengthPending">بانتظار الإدخال</span>
+            </div>
+            <div id="auth-strength-bar" class="strength-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="قوة كلمة المرور">
+              <span class="strength-fill"></span>
+            </div>
+          </div>
+          <p id="auth-error" class="form-error" role="alert" aria-live="assertive"></p>
+          <button id="auth-submit" class="button button-primary button-large button-block" type="submit" data-action="auth-submit">
+            <span data-i18n="auth.login">دخول إلى المساحة</span>
+            <svg class="icon icon-trailing" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-arrow-left"></use></svg>
+          </button>
+        </form>
+        <button id="auth-toggle-mode" class="auth-mode-toggle" type="button" data-action="auth-toggle-mode">
+          <span class="auth-mode-toggle-copy"><span data-i18n="auth.firstTime">تستخدم التطبيق لأول مرة؟</span><strong data-i18n="auth.createAccount">أنشئ كلمة مرور رئيسية</strong></span>
+          <span class="auth-mode-toggle-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chevron-left"></use></svg></span>
+        </button>
+        <p id="security-note" class="security-note">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-shield"></use></svg>
+          <span data-i18n="auth.securityNote">لا نرسل كلمة المرور إلى أي خادم. مفتاح فك التشفير يبقى في ذاكرة الجلسة فقط.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div id="app-shell" class="app-shell" hidden>
+    <aside id="sidebar" class="sidebar" aria-label="التنقل الرئيسي">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <a class="brand-lockup" href="#dashboard" data-nav="dashboard" aria-label="HSA Notes">
+            <span class="brand-symbol" aria-hidden="true"><svg class="icon icon-brand"><use href="assets/icons/sprite.svg#icon-logo"></use></svg></span>
+            <span class="brand-wordmark">HSA <strong>Notes</strong></span>
+          </a>
+          <button class="icon-button sidebar-close" type="button" aria-label="إغلاق القائمة" data-close-sidebar data-i18n-aria-label="common.closeMenu">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-close"></use></svg>
+          </button>
+        </div>
+        <div class="sidebar-context">
+          <span class="context-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-database"></use></svg></span>
+          <span><small data-i18n="app.workspaceLabel">مساحة العمل</small><strong data-i18n="app.personalVault">الخزنة الشخصية</strong></span>
+          <span class="context-live" aria-label="متصل" data-i18n-aria-label="app.connected"></span>
+        </div>
+        <nav id="primary-nav" class="primary-nav" aria-label="أقسام التطبيق">
+          <span class="nav-section-label" data-i18n="nav.workspace">مساحة العمل</span>
+          <a class="nav-item is-active" href="#dashboard" data-nav="dashboard" aria-current="page">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-dashboard"></use></svg></span>
+            <span data-i18n="nav.dashboard">لوحة التحكم</span>
+            <span class="nav-item-indicator"></span>
+          </a>
+          <a class="nav-item" href="#api-keys" data-nav="api-keys">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-key-round"></use></svg></span>
+            <span data-i18n="nav.apiKeys">مفاتيح API</span>
+          </a>
+          <a class="nav-item" href="#credentials" data-nav="credentials">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-lock"></use></svg></span>
+            <span data-i18n="nav.credentials">بيانات الدخول</span>
+          </a>
+          <a class="nav-item" href="#generator" data-nav="generator">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-wand"></use></svg></span>
+            <span data-i18n="nav.generator">مولّد كلمات المرور</span>
+          </a>
+          <a class="nav-item" href="#notes" data-nav="notes">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-note"></use></svg></span>
+            <span data-i18n="nav.notes">الملاحظات</span>
+          </a>
+          <span class="nav-section-label nav-section-spaced" data-i18n="nav.system">النظام</span>
+          <a class="nav-item" href="#backup" data-nav="backup">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-file-lock"></use></svg></span>
+            <span data-i18n="nav.backup">التصدير</span>
+            <span class="nav-item-badge" data-nav-badge="backup">—</span>
+          </a>
+          <a class="nav-item" href="#settings" data-nav="settings">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-settings"></use></svg></span>
+            <span data-i18n="nav.settings">الإعدادات</span>
+          </a>
+          <a class="nav-item" href="#about" data-nav="about">
+            <span class="nav-item-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-info"></use></svg></span>
+            <span data-i18n="nav.about">حول التطبيق</span>
+          </a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-security">
+            <span class="security-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
+            <span><strong data-i18n="app.vaultProtected">الخزنة محمية</strong><small data-i18n="app.encryptionReady">التشفير جاهز</small></span>
+            <span class="security-check"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-check"></use></svg></span>
+          </div>
+          <button class="sidebar-logout" type="button" data-logout-button>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-logout"></use></svg>
+            <span data-i18n="nav.logout">تسجيل الخروج</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <button class="sidebar-backdrop" type="button" aria-label="إغلاق القائمة" data-close-sidebar data-i18n-aria-label="common.closeMenu"></button>
+
+    <div class="app-frame">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button id="mobile-menu-button" class="icon-button mobile-menu-button" type="button" aria-label="فتح القائمة" aria-expanded="false" data-i18n-aria-label="common.openMenu">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-menu"></use></svg>
+          </button>
+          <div class="page-heading">
+            <span class="topbar-kicker" data-i18n="app.workspaceLabel">مساحة العمل</span>
+            <h1 id="page-title" data-i18n="nav.dashboard">لوحة التحكم</h1>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="global-search-shell">
+            <svg class="icon search-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-search"></use></svg>
+            <input id="global-search" name="global-search" class="global-search" type="search" autocomplete="off" aria-label="البحث" data-i18n-placeholder="common.searchPlaceholder" data-i18n-aria-label="common.search" placeholder="ابحث في مساحتك">
+            <kbd class="search-shortcut" aria-hidden="true">Ctrl K</kbd>
+          </div>
+          <button id="language-button" class="topbar-button language-button" type="button" aria-label="تغيير اللغة" data-action="language-toggle" data-i18n-aria-label="common.changeLanguage">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-globe"></use></svg>
+            <span id="language-label" data-language-label>العربية</span>
+            <svg class="icon icon-chevron" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+          </button>
+          <button id="theme-button" class="icon-button theme-button" type="button" aria-label="تبديل المظهر" aria-pressed="false" data-action="theme" data-i18n-aria-label="common.toggleTheme">
+            <svg class="icon theme-icon-light" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-sun"></use></svg>
+            <svg class="icon theme-icon-dark" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <div class="user-menu-wrap">
+            <button id="user-menu-button" class="user-menu-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="فتح قائمة المستخدم" data-i18n-aria-label="common.openUserMenu">
+              <span class="user-avatar" aria-hidden="true">H</span>
+              <span class="user-menu-copy"><strong data-i18n="common.localVault">الخزنة المحلية</strong><small data-i18n="common.personalWorkspace">مساحة شخصية</small></span>
+              <svg class="icon icon-chevron" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+            </button>
+            <div id="user-menu-popover" class="user-menu-popover" role="menu" hidden>
+              <div class="user-popover-header">
+                <span class="user-avatar user-avatar-large" aria-hidden="true">H</span>
+                <span><strong data-i18n="common.localVault">الخزنة المحلية</strong><small data-i18n="common.personalWorkspace">مساحة شخصية</small></span>
+              </div>
+              <div class="popover-divider"></div>
+              <a class="popover-item" href="#settings" data-nav="settings" role="menuitem"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-settings"></use></svg><span data-i18n="nav.settings">الإعدادات</span></a>
+              <button id="logout-button" class="popover-item popover-item-danger" type="button" role="menuitem" data-action="lock-app"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-logout"></use></svg><span data-i18n="nav.logout">تسجيل الخروج</span></button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="page-content" class="page-content" tabindex="-1" aria-live="polite">
+        <div class="page-state page-state-loading" data-page-state="loading">
+          <span class="loading-mark"><span></span></span>
+          <strong data-i18n="common.loadingWorkspace">جارٍ فتح مساحة العمل</strong>
+          <span data-i18n="common.loadingHint">لحظات ونعود إليك.</span>
+        </div>
+      </main>
+
+      <nav class="mobile-nav" aria-label="التنقل السريع">
+        <a class="mobile-nav-item is-active" href="#dashboard" data-nav="dashboard" aria-current="page">
+          <span class="mobile-nav-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-dashboard"></use></svg></span>
+          <span data-i18n="nav.dashboardShort">الرئيسية</span>
+        </a>
+        <a class="mobile-nav-item" href="#api-keys" data-nav="api-keys">
+          <span class="mobile-nav-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-key-round"></use></svg></span>
+          <span data-i18n="nav.apiKeysShort">المفاتيح</span>
+        </a>
+        <a class="mobile-nav-item" href="#generator" data-nav="generator">
+          <span class="mobile-nav-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-wand"></use></svg></span>
+          <span data-i18n="nav.generatorShort">المولّد</span>
+        </a>
+        <a class="mobile-nav-item" href="#notes" data-nav="notes">
+          <span class="mobile-nav-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-note"></use></svg></span>
+          <span data-i18n="nav.notesShort">الملاحظات</span>
+        </a>
+        <button class="mobile-nav-item mobile-nav-more" type="button" data-open-sidebar aria-label="المزيد" data-i18n-aria-label="common.moreOptions">
+          <span class="mobile-nav-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-more"></use></svg></span>
+          <span data-i18n="nav.more">المزيد</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <div id="modal-root" class="layer-root modal-root" aria-live="polite"></div>
+  <div id="toast-root" class="layer-root toast-root" aria-live="polite" aria-atomic="true"></div>
+  <div id="confirm-root" class="layer-root confirm-root" aria-live="assertive"></div>
+  <div id="command-search-root" class="layer-root command-search-root" aria-live="polite"></div>
+</body>
+</html>

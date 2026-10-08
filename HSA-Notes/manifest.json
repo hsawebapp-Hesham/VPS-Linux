@@ -1,0 +1,41 @@
+{
+  "name": "HSA Notes — Personal Secure Vault",
+  "short_name": "HSA Notes",
+  "description": "مساحة شخصية آمنة ومنظمة لإدارة المفاتيح وبيانات الدخول والملاحظات.",
+  "lang": "ar",
+  "dir": "rtl",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#102235",
+  "background_color": "#f4f7f7",
+  "categories": ["productivity", "utilities", "security"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-192.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
